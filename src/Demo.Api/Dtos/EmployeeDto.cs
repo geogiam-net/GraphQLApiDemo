@@ -14,8 +14,6 @@ public class EmployeeDto
 
     public Role Role { get; set; } = Role.None;
 
-    public Company? Company { get; set; }
-
     public EmployeeDto()
     {
     }
@@ -25,5 +23,7 @@ public class EmployeeDto
         Id = employee.Id;
         Name = employee.Name;
         Lastname = employee.Lastname;
+        BirthDate = employee.BirthDate;
+        Role = employee.Role;
     }
 }

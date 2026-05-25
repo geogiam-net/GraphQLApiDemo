@@ -1,25 +1,5 @@
 @HostAddress = http://localhost:5181/graphql
 
-### Ok - nameless query
-
-POST {{HostAddress}}
-Content-Type: application/json
-Accept: application/graphql-response+json; charset=utf-8
-
-{
-  "query": "query { greeting }"
-}
-
-### Ok - query with name
-
-POST {{HostAddress}}
-Content-Type: application/json
-Accept: application/graphql-response+json; charset=utf-8
-
-{
-  "query": "query GetGreeting { greeting }"
-}
-
 ### Ok - query employees
 
 POST {{HostAddress}}
@@ -27,5 +7,31 @@ Content-Type: application/json
 Accept: application/graphql-response+json; charset=utf-8
 
 {
-  "query": "query { employees { name, lastname} }"
+  "query": "query { employees { id, name, lastname } }"
+}
+
+### Ok - query employee by id
+
+POST {{HostAddress}}
+Content-Type: application/json
+Accept: application/graphql-response+json; charset=utf-8
+
+{
+ "query": "query GetEmployeeById($id: UUID!) { employeeById(id: $id) { id, name, lastname } }",
+ "variables": {
+   "id": "99999999-9999-9999-9999-999999999999"
+ }
+}
+
+### Ok - query company data
+
+POST {{HostAddress}}
+Content-Type: application/json
+Accept: application/graphql-response+json; charset=utf-8
+
+{
+ "query": "query GetCompanyData($legalName: String!) { companyData(legalName: $legalName) { legalName, earningsLastYear, revenueLastYear, corporation { legalName }, locations { city } } }",
+ "variables": {
+   "legalName": "contoso retail"
+ }
 }

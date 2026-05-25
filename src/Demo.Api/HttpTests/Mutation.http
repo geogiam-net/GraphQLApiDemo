@@ -1,6 +1,6 @@
 @HostAddress = http://localhost:5181/graphql
 
-### Ok - CreateEmployee
+### Ok - Create Employee
 
 POST {{HostAddress}}
 Content-Type: application/json
@@ -8,4 +8,14 @@ Accept: application/graphql-response+json; charset=utf-8
 
 { 
   "query": "mutation { createEmployee(employee: { name: \"george\", lastname: \"baxter\" }) { id } }" 
+}
+
+### Ok - update Past Year Company Earnings And Revenue
+
+POST {{HostAddress}}
+Content-Type: application/json
+Accept: application/graphql-response+json; charset=utf-8
+
+{ 
+  "query": "mutation { updatePastYearCompanyEarningsAndRevenue(legalName: \"contoso retail\", newEarnings: 20000000, newRevenue: 3200000) { legalName, earningsLastYear, revenueLastYear } }" 
 }
