@@ -17,5 +17,5 @@ Content-Type: application/json
 Accept: application/graphql-response+json; charset=utf-8
 
 { 
-  "query": "mutation { updatePastYearCompanyEarningsAndRevenue(legalName: \"contoso retail\", newEarnings: 20000000, newRevenue: 3200000) { legalName, earningsLastYear, revenueLastYear } }" 
+  "query": "mutation { updateCompanyFinancials(legalName: \"contoso retail\", newEarnings: 20000000, newRevenue: 3200000) { legalName, earningsLastYear, revenueLastYear } }" 
 }

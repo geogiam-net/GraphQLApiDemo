@@ -12,10 +12,10 @@ public class Mutation
         return new EmployeeDto(newEmployee);
     }
 
-    public async Task<CompanyDto?> UpdatePastYearCompanyEarningsAndRevenue(string legalName, decimal newEarnings, decimal newRevenue, 
+    public async Task<CompanyDto?> UpdateCompanyFinancials(string legalName, decimal newEarnings, decimal newRevenue, 
         ICompanyService companyService, CancellationToken cancellationToken)
     {
-        var company = await companyService.UpdatePastYearCompanyEarningsAndRevenueAsync(legalName, newEarnings, newRevenue, cancellationToken);
+        var company = await companyService.UpdateCompanyFinancialsAsync(legalName, newEarnings, newRevenue, cancellationToken);
         if (company is null) {
             return null;
         }
